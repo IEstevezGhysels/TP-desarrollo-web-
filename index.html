@@ -1,6 +1,7 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="imagenes/Sky properties.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sky properties</title>
@@ -35,11 +36,11 @@
             <a href="">
                 <li> ¿Donde encontrarnos?</li>
             </a>
-            <a href="">
-                <li> Alquilar</li>
-                <a href="">
-                    <li> Comprar</li>
-                </a>
+            <a href="#" id="alquilar">
+                <li>Alquilar</li>
+            </a>
+            <a href="#" id="comprar">
+                <li>Comprar</li>
             </a>
         </ul>
     </nav>
@@ -63,7 +64,7 @@
                             privilegiada en el corazón de Manhattan, este departamento encapsula el estilo de vida de
                             lujo en una de las ciudades más emocionantes del mundo.
                         </p>
-                        <a href=" "><button class="btn">Ver mas </button></a>
+                        <a href="empire.html" target="_blank"><button class="btn">Ver mas </button></a>
                     </div>
                 </div>
                 <div class="departamentos">
@@ -82,7 +83,7 @@
                             privilegiado que define la experiencia de vivir en uno de los edificios más emblemáticos del
                             mundo.
                         </p>
-                        <a href="imagenes/One-World.jpg" target="_blank"><button class="btn">Ver mas </button></a>
+                        <a href="oneworld.html" target="_blank"><button class="btn">Ver mas </button></a>
                     </div>
                 </div>
                 <div class="departamentos">
@@ -102,7 +103,7 @@
                             de primer nivel, este penthouse en la Central Park Tower es el epítome del lujo urbano en la
                             ciudad que nunca duerme.
                         </p>
-                        <a href=""><button class="btn">Ver mas</button></a>
+                        <a href="centralpark.html" target="_blank"><button class="btn">Ver mas</button></a>
                     </div>
                 </div>
                 <div class="departamentos">
@@ -125,7 +126,7 @@
                             encapsula el lujo atemporal y la comodidad refinada en una de las direcciones más
                             prestigiosas de Nueva York.
                         </p>
-                        <a href=""><button class="btn">Ver mas</button></a>
+                        <a href="" target="_blank"><button class="btn">Ver mas</button></a>
                     </div>
                 </div>
                 <div class="departamentos">
@@ -149,7 +150,7 @@
                             la síntesis perfecta entre lujo, comodidad y ubicación privilegiada en una de las
                             direcciones más codiciadas de la ciudad.
                         </p>
-                        <a href=""><button class="btn">Ver mas</button></a>
+                        <a href="" target="_blank"><button class="btn">Ver mas</button></a>
                     </div>
                 </div>
                 <div class="departamentos">
@@ -167,7 +168,7 @@
                             departamento en el Seagram Building personifica el lujo discreto y la sofisticación clásica
                             en una de las direcciones más icónicas de Nueva York.
                         </p>
-                        <a href=""><button class="btn"> Ver mas</button></a>
+                        <a href="" target="_blank"><button class="btn"> Ver mas</button></a>
                     </div>
                 </div>
                 <div class="departamentos">
@@ -185,7 +186,7 @@
                             disfrute. Este departamento en One57 representa la esencia del lujo urbano en una de las
                             ubicaciones más codiciadas de Nueva York.
                         </p>
-                        <a href=""><button class="btn"> Ver mas</button></a>
+                        <a href="" target="_blank"><button class="btn"> Ver mas</button></a>
                     </div>
                 </div>
                 <div class="departamentos">
@@ -203,7 +204,7 @@
                             diseñadas para el entretenimiento y la relajación. Este departamento en la Bank of America
                             Tower encapsula la elegancia urbana y el lujo moderno en una de las ubicaciones más
                             emblemáticas de Nueva York. </p>
-                        <a href=""><button class="btn">Ver mas </button></a>
+                        <a href="" target="_blank"><button class="btn">Ver mas </button></a>
                     </div>
                 </div>
             </div>
@@ -215,6 +216,51 @@
         <p>Contacto: +54 11 12345678</p>
         <p>© Derechos reservados</p>
     </footer>
+    
+    <!-- Modal para ingresar el email -->
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="emailForm">
+                <label for="email">Ingrese su email para que nos contactemos:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- JavaScript para el Modal -->
+    <script>
+        $(document).ready(function(){
+            // Abre el modal cuando se hace clic en "Comprar" o "Alquilar"
+            $('#comprar, #alquilar').click(function(e){
+                e.preventDefault();
+                $('#emailModal').show();
+            });
+
+            // Cierra el modal cuando se hace clic en el botón de cerrar
+            $('.close').click(function(){
+                $('#emailModal').hide();
+            });
+
+            // Cierra el modal cuando se hace clic fuera del contenido del modal
+            $(window).click(function(e){
+                if ($(e.target).is('#emailModal')) {
+                    $('#emailModal').hide();
+                }
+            });
+
+            // Maneja el envío del formulario
+            $('#emailForm').submit(function(e){
+                e.preventDefault();
+                alert('Gracias por proporcionar su email. Nos pondremos en contacto pronto.');
+                $('#emailModal').hide();
+            });
+        });
+    </script>
     </div>
 </body>
 
