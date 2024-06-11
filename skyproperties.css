@@ -175,3 +175,8 @@ body {
     box-shadow: 0 2px 4px black 
 
 }
+.ubi{
+    align-items: center;
+    width: 400px;
+    height: 250px;
+}
