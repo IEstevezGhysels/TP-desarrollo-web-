@@ -2,10 +2,10 @@
 <html lang="es">
 
 <head>
-    <link rel="icon" href="imagenes/Sky properties.ico">
+        <link rel="icon" href="imagenes/Sky properties.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venta de Propiedad - Sky Properties</title>
+    <title>Sky Properties</title>
     <link rel="stylesheet" href="skyproperties.css">
     <style>
         body {
@@ -13,8 +13,7 @@
             margin: 0;
             padding: 0;
             background-color: rgb(70, 70, 70);
-            color: white;
-            /* Cambia el color del texto a blanco */
+            color: rgb(34, 33, 33);
         }
 
         .container {
@@ -26,7 +25,7 @@
         .property-title {
             text-align: center;
             color: white;
-            /* Cambia el color del título a blanco */
+
         }
 
         .gallery {
@@ -53,21 +52,21 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin: 20px 0;
             color: black;
-            /* Cambia el color del texto de los detalles a negro */
+
         }
 
         .property-details h2 {
 
             color: black;
-            /* Cambia el color del subtítulo a blanco */
+
         }
 
         .contact {
             text-align: center;
             padding: 20px;
             background-color: #fff;
-            box-shadow: 0 2px 4px black
-                /* Cambia el color del texto de contacto a negro */
+            box-shadow: 0 2px 4px black 
+
         }
 
 
@@ -131,11 +130,11 @@
             <a href="">
                 <li> ¿Donde encontrarnos?</li>
             </a>
-            <a href="">
-                <li> Alquilar</li>
-                <a href="">
-                    <li> Comprar</li>
-                </a>
+            <a href="#" id="alquilar">
+                <li>Alquilar</li>
+            </a>
+            <a href="#" id="comprar">
+                <li>Comprar</li>
             </a>
         </ul>
     </nav>
@@ -160,7 +159,7 @@
             <img src="imagenes/hearst-baño.jpg" alt="Piscina" onclick="openModal(this)">
         </section>
         <section class="property-details">
-            <h2>Precio: 150.000.000,00 U$D</h2>
+            <h2>Precio: 1.700.000,00 U$D</h2>
         </section>
         <section class="contact" id="contactos">
             <h2>Contactos</h2>
@@ -190,6 +189,49 @@
             var modal = document.getElementById("myModal");
             modal.style.display = "none";
         }
+    </script>
+     
+     <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="emailForm">
+                <label for="email">Ingrese su email para que nos contactemos:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+     <script>
+        $(document).ready(function(){
+
+            $('#comprar, #alquilar').click(function(e){
+                e.preventDefault();
+                $('#emailModal').show();
+            });
+
+
+            $('.close').click(function(){
+                $('#emailModal').hide();
+            });
+
+
+            $(window).click(function(e){
+                if ($(e.target).is('#emailModal')) {
+                    $('#emailModal').hide();
+                }
+            });
+
+
+            $('#emailForm').submit(function(e){
+                e.preventDefault();
+                alert('Gracias por proporcionar su email. Nos pondremos en contacto pronto.');
+                $('#emailModal').hide();
+            });
+        });
     </script>
 </body>
 

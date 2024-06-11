@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <link rel="icon" href="imagenes/Sky properties.ico">
+        <link rel="icon" href="imagenes/Sky properties.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sky Properties</title>
@@ -65,7 +65,8 @@
             text-align: center;
             padding: 20px;
             background-color: #fff;
-            box-shadow: 0 2px 4px black
+            box-shadow: 0 2px 4px black 
+
         }
 
 
@@ -156,7 +157,7 @@
             <img src="imagenes/seagram-gym.jpg" alt="Piscina" onclick="openModal(this)">
         </section>
         <section class="property-details">
-            <h2>Precio: 175.000.000,00 U$D</h2>
+            <h2>Precio: 1.800.000,00 U$D</h2>
         </section>
         <section class="contact" id="contactos">
             <h2>Contactos</h2>
@@ -187,8 +188,8 @@
             modal.style.display = "none";
         }
     </script>
-
-    <div id="emailModal" class="modal">
+     
+     <div id="emailModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <form id="emailForm">
@@ -202,28 +203,28 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
+     <script>
+        $(document).ready(function(){
 
-            $('#comprar, #alquilar').click(function (e) {
+            $('#comprar, #alquilar').click(function(e){
                 e.preventDefault();
                 $('#emailModal').show();
             });
 
 
-            $('.close').click(function () {
+            $('.close').click(function(){
                 $('#emailModal').hide();
             });
 
 
-            $(window).click(function (e) {
+            $(window).click(function(e){
                 if ($(e.target).is('#emailModal')) {
                     $('#emailModal').hide();
                 }
             });
 
 
-            $('#emailForm').submit(function (e) {
+            $('#emailForm').submit(function(e){
                 e.preventDefault();
                 alert('Gracias por proporcionar su email. Nos pondremos en contacto pronto.');
                 $('#emailModal').hide();

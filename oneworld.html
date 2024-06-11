@@ -5,7 +5,7 @@
         <link rel="icon" href="imagenes/Sky properties.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venta de Propiedad - Sky Properties</title>
+    <title>Sky Properties</title>
     <link rel="stylesheet" href="skyproperties.css">
     <style>
         body {
@@ -13,8 +13,7 @@
             margin: 0;
             padding: 0;
             background-color: rgb(70, 70, 70);
-            color: white;
-            /* Cambia el color del texto a blanco */
+            color: rgb(17, 17, 17);
         }
 
         .container {
@@ -26,7 +25,6 @@
         .property-title {
             text-align: center;
             color: white;
-            /* Cambia el color del título a blanco */
         }
 
         .gallery {
@@ -53,13 +51,11 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin: 20px 0;
             color: black;
-            /* Cambia el color del texto de los detalles a negro */
         }
 
         .property-details h2 {
 
             color: black;
-            /* Cambia el color del subtítulo a blanco */
         }
 
         .contact {
@@ -67,7 +63,6 @@
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 2px 4px black
-                /* Cambia el color del texto de contacto a negro */
         }
 
 
@@ -131,11 +126,11 @@
             <a href="">
                 <li> ¿Donde encontrarnos?</li>
             </a>
-            <a href="">
-                <li> Alquilar</li>
-                <a href="">
-                    <li> Comprar</li>
-                </a>
+            <a href="#" id="alquilar">
+                <li>Alquilar</li>
+            </a>
+            <a href="#" id="comprar">
+                <li>Comprar</li>
             </a>
         </ul>
     </nav>
@@ -143,7 +138,7 @@
 
     <div class="container">
         <section>
-            <h2 class="property-title">Empire State Room</h2>
+            <h2 class="property-title">One World Tower</h2>
             <p class="property-details">
                 Experimenta el lujo y la comodidad en Oneworld, donde el glamour urbano se une a las vistas
                 impresionantes de la Gran Manzana. Condominios de élite ofrecen diseño vanguardista, comodidades de
@@ -171,24 +166,47 @@
         </section>
     </div>
 
-
-    <div id="myModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="img01">
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="emailForm">
+                <label for="email">Ingrese su email para que nos contactemos:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
     </div>
 
-    <script>
-        function openModal(imgElement) {
-            var modal = document.getElementById("myModal");
-            var modalImg = document.getElementById("img01");
-            modal.style.display = "block";
-            modalImg.src = imgElement.src;
-        }
 
-        function closeModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "none";
-        }
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+     <script>
+        $(document).ready(function(){
+
+            $('#comprar, #alquilar').click(function(e){
+                e.preventDefault();
+                $('#emailModal').show();
+            });
+
+
+            $('.close').click(function(){
+                $('#emailModal').hide();
+            });
+
+
+            $(window).click(function(e){
+                if ($(e.target).is('#emailModal')) {
+                    $('#emailModal').hide();
+                }
+            });
+
+
+            $('#emailForm').submit(function(e){
+                e.preventDefault();
+                alert('Gracias por proporcionar su email. Nos pondremos en contacto pronto.');
+                $('#emailModal').hide();
+            });
+        });
     </script>
 </body>
 
