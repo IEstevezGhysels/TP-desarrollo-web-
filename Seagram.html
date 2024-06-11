@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="icon" href="imagenes/Sky properties.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Properties</title>
+    <link rel="stylesheet" href="skyproperties.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(70, 70, 70);
+            color: rgb(34, 33, 33);
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .property-title {
+            text-align: center;
+            color: white;
+
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .gallery img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .property-details {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            color: black;
+
+        }
+
+        .property-details h2 {
+
+            color: black;
+
+        }
+
+        .contact {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px black
+        }
+
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 700px) {
+            .modal-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Sky <br>Properties</h1>
+    </header>
+    <nav class="nav_bar">
+        <ul>
+            <a href="#contactos">
+                <li>Contactos</li>
+            </a>
+            <a href="">
+                <li>¿Quienes somos?</li>
+            </a>
+            <a href="">
+                <li> ¿Donde encontrarnos?</li>
+            </a>
+            <a href="#" id="alquilar">
+                <li>Alquilar</li>
+            </a>
+            <a href="#" id="comprar">
+                <li>Comprar</li>
+            </a>
+        </ul>
+    </nav>
+
+
+    <div class="container">
+        <section>
+            <h2 class="property-title">Seagram Building</h2>
+            <p class="property-details">
+                Te presentamos un exclusivo piso de lujo en el emblemático Seagram Building, ubicado en el corazón de
+                Manhattan. Este inmueble, diseñado por el legendario arquitecto Ludwig Mies van der Rohe, combina a la
+                perfección la elegancia del diseño moderno con la sofisticación del estilo de vida neoyorquino.
+            </p>
+        </section>
+        <section class="gallery">
+            <img src="imagenes/seagram-cocina.jpg" alt="Sala de estar" onclick="openModal(this)">
+            <img src="imagenes/seagram-living.jpg" alt="Comedor" onclick="openModal(this)">
+            <img src="imagenes/seagram-habitacion.jpg" alt="Habitación" onclick="openModal(this)">
+            <img src="imagenes/seagram-baño.jpg" alt="Baño" onclick="openModal(this)">
+            <img src="imagenes/seagram-gym.jpg" alt="Piscina" onclick="openModal(this)">
+        </section>
+        <section class="property-details">
+            <h2>Precio: 175.000.000,00 U$D</h2>
+        </section>
+        <section class="contact" id="contactos">
+            <h2>Contactos</h2>
+            <p>
+                Para más información, por favor contáctenos a través de nuestro correo electrónico o teléfono.
+            </p>
+            <p>Email: contacto@skyproperties.com</p>
+            <p>Teléfono: +1 234 567 890</p>
+        </section>
+    </div>
+
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <script>
+        function openModal(imgElement) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            modal.style.display = "block";
+            modalImg.src = imgElement.src;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="emailForm">
+                <label for="email">Ingrese su email para que nos contactemos:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#comprar, #alquilar').click(function (e) {
+                e.preventDefault();
+                $('#emailModal').show();
+            });
+
+
+            $('.close').click(function () {
+                $('#emailModal').hide();
+            });
+
+
+            $(window).click(function (e) {
+                if ($(e.target).is('#emailModal')) {
+                    $('#emailModal').hide();
+                }
+            });
+
+
+            $('#emailForm').submit(function (e) {
+                e.preventDefault();
+                alert('Gracias por proporcionar su email. Nos pondremos en contacto pronto.');
+                $('#emailModal').hide();
+            });
+        });
+    </script>
+</body>
+
+</html>
