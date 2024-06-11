@@ -13,12 +13,12 @@ h1 {
     text-align: center;
     border: 2px solid black;
     padding: 10px;
-    /* Ajusta el espacio entre el texto y el borde según lo desees */
+
 }
 
 h1 {
     -webkit-text-stroke: 1px black;
-    /* Añade un contorno negro a las letras */
+
 }
 
 .nav_bar ul {
@@ -122,7 +122,6 @@ body {
 
 }
 
-/* Modal CSS */
 .modal {
     display: none;
     position: fixed;
@@ -168,4 +167,11 @@ body {
 #emailForm input,
 #emailForm button {
     margin-bottom: 15px;
+}
+.contact {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px black 
+
 }

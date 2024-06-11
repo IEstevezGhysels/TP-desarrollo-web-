@@ -33,9 +33,6 @@
             <a href="">
                 <li>¿Quienes somos?</li>
             </a>
-            <a href="">
-                <li> ¿Donde encontrarnos?</li>
-            </a>
             <a href="#" id="alquilar">
                 <li>Alquilar</li>
             </a>
@@ -171,14 +168,15 @@
                         <a href="Seagram.html" target="_blank"><button class="btn"> Ver mas</button></a>
                     </div>
                 </div>      
-    <footer id="contactos">
-        <h2>OWNERS: Cagnina, Ricardo Valentino ; Estevez Ghysels, Ignacio </h2>
-        <p>Gmail: skypropierties@gmail.com</p>
-        <p>Contacto: +54 11 12345678</p>
-        <p>© Derechos reservados</p>
-    </footer>
-    
-    <!-- Modal para ingresar el email -->
+                <section class="contact" id="contactos">
+                    <h2>Contactos</h2>
+                    <p>
+                        Para más información, por favor contáctenos a través de nuestro correo electrónico o teléfono.
+                    </p>
+                    <p>Email: contacto@skyproperties.com</p>
+                    <p>Teléfono: +1 234 567 890</p>
+                </section>
+
     <div id="emailModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -190,31 +188,29 @@
         </div>
     </div>
 
-    <!-- jQuery -->
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- JavaScript para el Modal -->
+
     <script>
         $(document).ready(function(){
-            // Abre el modal cuando se hace clic en "Comprar" o "Alquilar"
+
             $('#comprar, #alquilar').click(function(e){
                 e.preventDefault();
                 $('#emailModal').show();
             });
 
-            // Cierra el modal cuando se hace clic en el botón de cerrar
             $('.close').click(function(){
                 $('#emailModal').hide();
             });
 
-            // Cierra el modal cuando se hace clic fuera del contenido del modal
             $(window).click(function(e){
                 if ($(e.target).is('#emailModal')) {
                     $('#emailModal').hide();
                 }
             });
 
-            // Maneja el envío del formulario
+
             $('#emailForm').submit(function(e){
                 e.preventDefault();
                 alert('Gracias por proporcionar su email. Nos pondremos en contacto pronto.');
